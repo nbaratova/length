@@ -9,7 +9,7 @@ for i in s:
         my_map[i] = 1
 
 my_list = list()
-for x in range(2):
+for x in range(5):
     try:
         first_max = max(my_map, key=my_map.get)
         my_list.append(f"{first_max} = {my_map[first_max]}")
@@ -17,4 +17,4 @@ for x in range(2):
     except:
         pass
 
-print(str(my_list))
+print("\n".join(my_list))

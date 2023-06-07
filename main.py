@@ -45,7 +45,7 @@ async def get_length(message: types.Message):
         except:
             pass
 
-    await message.answer(str(my_list))
+    await message.answer("\n".join(my_list))
 
 
 if __name__ == '__main__':
