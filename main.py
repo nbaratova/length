@@ -26,8 +26,25 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def get_length(message: types.Message):
-    length = len(message.text)
-    await message.answer(length)
+    s = message.text.split()
+    my_map = dict()
+
+    for i in s:
+        if i in my_map:
+            my_map[i] += 1
+        else:
+            my_map[i] = 1
+
+    my_list = list()
+    for x in range(5):
+        try:
+            first_max = max(my_map, key=my_map.get)
+            my_list.append(f"{first_max} = {my_map[first_max]}")
+            del my_map[first_max]
+        except:
+            pass
+
+    await message.answer(str(my_list))
 
 
 if __name__ == '__main__':
